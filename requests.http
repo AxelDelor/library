@@ -1,0 +1,30 @@
+### GET tous les livres
+GET http://localhost:8080/books
+
+### GET livres disponibles
+GET http://localhost:8080/books/available
+
+### POST créer un livre
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+  "title": "Brave New World",
+  "author": "Aldous Huxley",
+  "isbn": "9780060850524"
+}
+
+### POST créer un emprunt (adapte bookId/memberId à tes données)
+POST http://localhost:8080/loans
+Content-Type: application/json
+
+{
+  "bookId": 1,
+  "memberId": 2
+}
+
+### PUT retourner un livre (adapte bookId)
+PUT http://localhost:8080/loans/2/return
+
+### GET historique des prêts d'un membre
+GET http://localhost:8080/members/1/loans
