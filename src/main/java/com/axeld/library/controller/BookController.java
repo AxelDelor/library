@@ -3,6 +3,7 @@ package com.axeld.library.controller;
 import com.axeld.library.dto.BookCreateRequest;
 import com.axeld.library.model.Book;
 import com.axeld.library.service.BookService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class BookController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Book createBook(@RequestBody BookCreateRequest bookCreateRequest) {
+    public Book createBook(@Valid @RequestBody BookCreateRequest bookCreateRequest) {
         Book book = Book.builder()
                 .title(bookCreateRequest.title())
                 .author(bookCreateRequest.author())

@@ -1,6 +1,8 @@
 package com.axeld.library.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -15,15 +17,19 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(nullable = false)
     private String title;
 
+    @NotBlank
     @Column(nullable = false)
     private String author;
 
-    @Column(unique = true)
+    @NotBlank
+    @Column(unique = true, nullable = false)
     private String isbn;
 
+    @NotNull
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private State state;
